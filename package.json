@@ -1,0 +1,16 @@
+{
+  "name": "equiflow",
+  "version": "2.0.0",
+  "description": "EquiFlow - Intelligent, Dependency-Aware Workload Management and Decision-Support Platform",
+  "private": true,
+  "scripts": {
+    "test:db": ".\\.venv\\Scripts\\pytest.exe database/tests/ -v",
+    "test:ingestion": "npm test --prefix services/ingestion",
+    "test:intelligence": ".\\.venv\\Scripts\\pytest.exe services/intelligence/tests/ -v",
+    "test:frontend": "npm test --prefix services/frontend",
+    "test:all": "npm run test:db && npm run test:ingestion && npm run test:intelligence && npm run test:frontend",
+    "dev:ingestion": "npm run dev --prefix services/ingestion",
+    "dev:intelligence": ".\\.venv\\Scripts\\uvicorn.exe app.main:app --app-dir services/intelligence --reload --port 8000",
+    "dev:frontend": "npm run dev --prefix services/frontend"
+  }
+}
